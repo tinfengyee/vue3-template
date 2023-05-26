@@ -11,7 +11,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false",
     "preview": "vite preview",
-    "prepare": "IF NOT EXIST .husky/_ (husky install) ELSE (echo husky is installed)",
+    "prepare": "husky install",
     "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "lint:prettier": "prettier --write src/",
     "lint": "run-p lint:eslint lint:prettier"
