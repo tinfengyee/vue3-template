@@ -13,6 +13,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  ignorePatterns: ['src/assets/iconfont/iconfont.js'],
   rules: {
     'vue/multi-word-component-names': 'off'
   }

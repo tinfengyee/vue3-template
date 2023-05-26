@@ -2,24 +2,27 @@ import type { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import svgLoader from 'vite-svg-loader'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { configMockPlugin } from './mock'
 import { configUnplugin } from './unplugin'
 import { fullImportPlugin } from './elplusFullImport'
+import { resolve } from 'node:path'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const { VITE_USE_MOCK } = viteEnv
 
   const vitePlugins: PluginOption[] = [
     vue(),
     vueJsx(),
-    // svg-loader
     svgLoader({
       svgoConfig: {
         multipass: true
       }
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [resolve(process.cwd(), 'src/assets/svg')],
+      symbolId: 'icon-[dir]-[name]'
     })
-    // vite-plugin-svg-icons 暂时不加入
   ]
   // unplugin
   vitePlugins.push(configUnplugin(isBuild))
