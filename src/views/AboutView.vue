@@ -1,5 +1,9 @@
 <script lang="ts" setup>
+import HelloWorld from '@/components/HelloWorld.vue'
 import mitt from '@/utils/mitt'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 const sendMitt = () => {
   mitt.emit('foo', 'hello')
 }
@@ -7,8 +11,8 @@ const sendMitt = () => {
 <template>
   <div class="about">
     <h1 @click="sendMitt">This is an about page</h1>
-    <el-button type="default">dd</el-button>
-    <el-button>e</el-button>
+    <el-button type="default" @click="router.back()">Go Back</el-button>
+    <HelloWorld msg="hello view" />
   </div>
 </template>
 

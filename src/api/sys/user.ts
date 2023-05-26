@@ -2,7 +2,7 @@ import http from '@/utils/http'
 import type { UserModel } from './model/userModel'
 
 enum Api {
-  List = '/demo'
+  List = '/user/list'
 }
 
 /**
