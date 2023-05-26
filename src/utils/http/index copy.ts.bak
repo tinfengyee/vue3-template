@@ -1,0 +1,40 @@
+import axios from 'axios'
+import { ElMessage } from 'element-plus'
+
+const http = axios.create({
+  baseURL: import.meta.env.VITE_APP_BASE_API,
+  timeout: 60000
+})
+
+/** 请求拦截器 */
+http.interceptors.request.use(
+  (config) => {
+    /** 请求白名单，放置一些不需要token的接口 */
+    const whiteList = ['/refreshToken', '/login']
+
+    return whiteList.some((v) => config!.url!.indexOf(v) > -1)
+      ? config
+      : new Promise((resolve) => {
+          // 处理 token
+          // config.headers.Authorization = 'token'
+          resolve(config)
+        })
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
+
+/** 响应拦截 */
+http.interceptors.response.use(
+  (response) => {
+    // 可以处理 400 /
+    return response.data
+  },
+  (error) => {
+    ElMessage.error(error)
+    return Promise.reject(error)
+  }
+)
+
+export default http
