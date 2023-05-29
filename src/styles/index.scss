@@ -1,0 +1,14 @@
+@use './variables.scss';
+@use './common.scss';
+@use './layout.scss';
+
+// 渐变
+.fade-enter-active,
+.fade-leave-active {
+  transition: var(--transition);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

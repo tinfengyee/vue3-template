@@ -1,16 +1,12 @@
 <template>
   <div class="app-wrapper">
-    <header>
-      <Navbar />
-    </header>
-    <main>
-      <AppMain />
-    </main>
-    <SvgIcon icon="test-up" size="24" />
-    <footer>footer</footer>
+    <LayoutHeader />
+    <section class="app-container">
+      <LayoutSidebar />
+      <LayoutMain />
+    </section>
   </div>
 </template>
 <script setup lang="ts">
-import SvgIcon from '@/components/SvgIcon'
-import { AppMain, Navbar } from './components'
+import { LayoutHeader, LayoutMain, LayoutSidebar } from './components'
 </script>

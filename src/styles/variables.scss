@@ -1,0 +1,52 @@
+/* 使用 sass 变量 */
+$sidebar-width: 210px;
+
+/* 使用原生 css 变量 */
+// 布局变量建议放在 容器 div 里面， 可以不放在 :root
+:root {
+  // 侧边菜单栏宽度
+  --sidebar-width: #{$sidebar-width};
+  // --hide-sidebar-width: 0px;
+
+  // --header-height: 52px;
+  // --footer-height: 52px;
+
+  // --main-bg-color: #f0f2f5;
+  // --navbar-bg-color: #ffffff;
+  // --navbar-text-color: #444444;
+  // --navbar-hover-color: rgba(0, 0, 0, 0.05);
+
+  // 矩阵节点统一使用圆角变量
+  --card-border: 1px solid rgba(0, 0, 0, 0.125);
+  --border-radius: 2px;
+  // 统一过渡时间效果
+  --transition: 0.3s all;
+}
+
+/* 上下左右边距 */
+@for $index from 1 through 5 {
+  .mgl_#{$index}0 {
+    margin-left: 10px * $index;
+  }
+  .mgr_#{$index}0 {
+    margin-right: 10px * $index;
+  }
+  .mgt_#{$index}0 {
+    margin-top: 10px * $index;
+  }
+  .mgb_#{$index}0 {
+    margin-bottom: 10px * $index;
+  }
+  .pdl_#{$index}0 {
+    padding-left: 10px * $index;
+  }
+  .pdr_#{$index}0 {
+    padding-right: 10px * $index;
+  }
+  .pdt_#{$index}0 {
+    padding-top: 10px * $index;
+  }
+  .pdb_#{$index}0 {
+    padding-bottom: 10px * $index;
+  }
+}

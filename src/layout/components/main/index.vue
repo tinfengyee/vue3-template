@@ -1,6 +1,6 @@
 <template>
   <div class="app-main">
     <!-- <RouterView /> -->
-    app-main
+    我的文档集
   </div>
 </template>
