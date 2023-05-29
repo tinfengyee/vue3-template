@@ -1,4 +1,4 @@
-$headerHeight: 50px;
+@use './variables' as var;
 
 .app-wrapper {
   position: relative;
@@ -9,17 +9,17 @@ $headerHeight: 50px;
   display: flex;
   flex-direction: column;
   .app-header {
-    height: $headerHeight;
+    height: var.$headerHeight;
     background-color: #fff;
   }
   .app-container {
     display: flex;
     height: 100%;
-    min-height: calc(100vh - #{$headerHeight});
+    min-height: calc(100vh - #{var.$headerHeight});
   }
   .app-aside {
-    width: 260px;
-    background-color: #f2f6faff;
+    width: var.$sidebarWidth;
+    background-color: #f2f6fa;
   }
   .app-main {
     flex: 1;

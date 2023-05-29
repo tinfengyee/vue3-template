@@ -1,11 +1,12 @@
 /* 使用 sass 变量 */
-$sidebar-width: 210px;
+$headerHeight: 50px;
+$sidebarWidth: 260px;
 
 /* 使用原生 css 变量 */
 // 布局变量建议放在 容器 div 里面， 可以不放在 :root
 :root {
   // 侧边菜单栏宽度
-  --sidebar-width: #{$sidebar-width};
+  --sidebar-width: #{$sidebarWidth};
   // --hide-sidebar-width: 0px;
 
   // --header-height: 52px;
