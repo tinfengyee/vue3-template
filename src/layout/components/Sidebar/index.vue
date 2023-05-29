@@ -1,43 +1,75 @@
 <template>
   <aside class="app-aside">
-    <el-menu default-active="2" class="workbench-menu" background-color="#f2f6fa" @open="handleOpen" @close="handleClose">
-      <sidebar-item v-for="item in list" :key="item.name" :item="item" />
+    <el-menu :default-active="acitvedMenu" class="workbench-menu" background-color="#f2f6fa">
+      <sidebar-item v-for="item in list" :key="item.name" :item="item" @item-click="handleClick(item)" />
     </el-menu>
   </aside>
 </template>
 
 <script setup lang="ts">
+import { onMounted, onBeforeMount, ref } from 'vue'
 import SidebarItem from './SidebarItem.vue'
+import mitt from '@/utils/mitt'
 
 const list = [
   {
-    name: '工作台'
+    name: '工作台',
+    path: '/workbench',
+    type: 'route'
   },
   {
+    path: '',
     name: '我的文档集',
+    type: 'menu',
     children: [
       {
-        name: '全部'
+        path: '',
+        name: '全部',
+        param: 'all'
       },
       {
-        name: '我收藏的'
+        path: '',
+        name: '我收藏的',
+        param: 'collection'
       },
       {
-        name: '我建立的'
+        path: '',
+        name: '我建立的',
+        param: 'created'
       },
       {
-        name: '我加入的'
+        path: '',
+        name: '我加入的',
+        param: 'join'
       }
     ]
   }
 ]
 
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+const acitvedMenu = ref('我收藏的')
+
+onMounted(() => {
+  mitt.on('item-click', handleClick)
+})
+
+onBeforeMount(() => {
+  mitt.off('item-click', handleClick)
+})
+
+const handleClick = (item) => {
+  acitvedMenu.value = item.name
 }
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+
+// const handleSelect = (key: string, keyPath: string[]) => {
+//   console.log(key, keyPath)
+// }
+
+// const handleOpen = (key: string, keyPath: string[]) => {
+//   console.log(key, keyPath)
+// }
+// const handleClose = (key: string, keyPath: string[]) => {
+//   console.log(key, keyPath)
+// }
 </script>
 
 <style lang="scss" scoped>
@@ -49,5 +81,11 @@ const handleClose = (key: string, keyPath: string[]) => {
 .aside-item {
   display: flex;
   align-items: center;
+}
+
+.workbench-menu {
+  :deep(.el-menu-item.is-active) {
+    background-color: #e4ebf0;
+  }
 }
 </style>

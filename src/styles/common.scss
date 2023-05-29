@@ -178,3 +178,32 @@ button,
     height: 0;
   }
 }
+
+/* 上下左右边距 */
+@for $index from 1 through 5 {
+  $value: 2 * $index;
+  .mgl_#{$value} {
+    margin-left: #{$value}px;
+  }
+  .mgr_#{$value} {
+    margin-right: #{$value}px;
+  }
+  .mgt_#{$value} {
+    margin-top: #{$value}px;
+  }
+  .mgb_#{$value} {
+    margin-bottom: #{$value}px;
+  }
+  .pdl_#{$value} {
+    padding-left: #{$value}px;
+  }
+  .pdr_#{$value} {
+    padding-right: #{$value}px;
+  }
+  .pdt_#{$value} {
+    padding-top: #{$value}px;
+  }
+  .pdb_#{$value} {
+    padding-bottom: #{$value}px;
+  }
+}
