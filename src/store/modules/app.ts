@@ -30,6 +30,6 @@ export const useAppStore = defineStore({
 })
 
 // Need to be used outside the setup
-export function useErrorLogStoreWithOut() {
+export function useAppStoreHook() {
   return useAppStore(store)
 }
