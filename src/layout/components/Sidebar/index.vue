@@ -7,9 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeMount, ref } from 'vue'
 import SidebarItem from './SidebarItem.vue'
 import mitt from '@/utils/mitt'
+
+const router = useRouter()
 
 const list = [
   {
@@ -18,27 +19,27 @@ const list = [
     type: 'route'
   },
   {
-    path: '',
+    path: '/document-set',
     name: '我的文档集',
     type: 'menu',
     children: [
       {
-        path: '',
+        path: '/document-set',
         name: '全部',
         param: 'all'
       },
       {
-        path: '',
+        path: '/document-set',
         name: '我收藏的',
         param: 'collection'
       },
       {
-        path: '',
+        path: '/document-set',
         name: '我建立的',
         param: 'created'
       },
       {
-        path: '',
+        path: '/document-set',
         name: '我加入的',
         param: 'join'
       }
@@ -58,6 +59,9 @@ onBeforeMount(() => {
 
 const handleClick = (item) => {
   acitvedMenu.value = item.name
+  router.push({
+    path: item.path
+  })
 }
 
 // const handleSelect = (key: string, keyPath: string[]) => {

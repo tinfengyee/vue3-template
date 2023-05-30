@@ -6,7 +6,19 @@ const base: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: Layout
+    component: Layout,
+    children: [
+      {
+        path: '/workbench',
+        name: 'Workbench',
+        component: () => import('@/views/workbench/index.vue')
+      },
+      {
+        path: '/document-set',
+        name: 'DocumentSet',
+        component: () => import('@/views/document-set/index.vue')
+      }
+    ]
   }
 ]
 

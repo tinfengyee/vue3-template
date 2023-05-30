@@ -36,7 +36,7 @@ function generateCompResolver(isBuild: boolean) {
 export function configUnplugin(isBuild: boolean) {
   const unplugins = [
     AutoImport({
-      // imports: ['vue', 'vue-router'],
+      imports: ['vue', 'vue-router'],
       resolvers: generImportResolver(isBuild),
       vueTemplate: true,
       dts: 'types/auto-imports.d.ts'
