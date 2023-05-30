@@ -24,11 +24,6 @@ const base: Array<RouteRecordRaw> = [
 
 const add: Array<RouteRecordRaw> = [
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/AboutView.vue')
-  },
-  {
     path: '/demo',
     name: 'Demo',
     component: () => import('@/views/demo/index.vue')
