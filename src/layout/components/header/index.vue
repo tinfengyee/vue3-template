@@ -1,6 +1,6 @@
 <template>
   <header class="app-header">
-    <div class="logo-wrap flex fvc">
+    <div class="logo-wrap flex fvc" @click="handleClick">
       <svg-icon icon="logo" />
       <span>业务中台</span>
     </div>
@@ -24,7 +24,12 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const router = useRouter()
+const handleClick = () => {
+  router.push('/demo')
+}
+</script>
 
 <style lang="scss" scoped>
 .app-header {

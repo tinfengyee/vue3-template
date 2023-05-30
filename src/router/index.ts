@@ -31,15 +31,7 @@ const add: Array<RouteRecordRaw> = [
   {
     path: '/demo',
     name: 'Demo',
-    component: Layout,
-    redirect: '/demo/list',
-    children: [
-      {
-        path: 'list',
-        name: 'DemoList',
-        component: () => import('@/views/demo/index.vue')
-      }
-    ]
+    component: () => import('@/views/demo/index.vue')
   }
 ]
 
